@@ -1,0 +1,19 @@
+{
+  "name": "swasthya-setu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Swasthya Setu — Low-Network Telemedicine Platform",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,green\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build:server": "npm run build --prefix server",
+    "build:client": "npm run build --prefix client",
+    "build": "npm run build:server && npm run build:client",
+    "test": "npm test --prefix server && node scripts/test_phase1.mjs && node scripts/test_vite_proxy.mjs && node scripts/test_phase2.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
